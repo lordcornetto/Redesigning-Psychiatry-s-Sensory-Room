@@ -1,0 +1,35 @@
+body {
+    margin: 2rem;
+    margin-left: 25%;
+    margin-right: 25%;
+    background-color: #d6dfff;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#experienceRating::-moz-range-thumb {
+    background: grey;
+    border: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+#experienceRating::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: grey;
+    border: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+#experienceRatingValue {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
