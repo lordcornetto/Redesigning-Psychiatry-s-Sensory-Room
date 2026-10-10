@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Details and Preferences</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="main_styles.css">
+</head>
+<body class="preferences-body">
+    <h2>Before starting your sensory experience...</h2>
+    <div class="form">
+        <div class="disability-section">
+            <label for="ifDisability">Do you have a disability?</label>
+        <input type="checkbox" id="ifDisability" name="ifDisability" onchange="document.getElementById('disabilities').style.display = this.checked ? 'block' : 'none';">
+        <div id="disabilities" style="display: none;">
+            <label for="disabilityType">Specify the type of disability or disabilities:</label>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="disabilityType1" name="disabilityType" value="autismSpectrumDisorder">
+                <label for="disabilityType1">Autism Spectrum Disorder</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="disabilityType2" name="disabilityType" value="attentionDeficitHyperactivityDisorder">
+                <label for="disabilityType2">Attention Deficit Hyperactivity Disorder</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="disabilityType3" name="disabilityType" value="traumaDifficulties">
+                <label for="disabilityType3">Trauma-related Difficulties</label>
+            </div>
+            <div class="form-group">
+                <label for="otherDisabilities">Other Disabilities</label>
+                <input type="text" class="form-control" id="otherDisabilities" name="disabilityType">
+            </div>
+        </div>
+        <div class="sensory-preference-section">
+            <label for="sensoryPreference">Choose your sensory preferences:</label>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="sensoryPreferenceRoomLighting" name="sensoryPreference" value="roomLighting">
+                <label for="sensoryPreferenceRoomLighting">Room Lighting</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="sensoryPreferenceNoise" name="sensoryPreference" value="noise">
+                <label for="sensoryPreferenceNoise">Noise</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="sensoryPreferencePressure" name="sensoryPreference" value="pressure">
+                <label for="sensoryPreferencePressure">Pressure</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="sensoryPreferenceMusic" name="sensoryPreference" value="music">
+                <label for="sensoryPreferenceMusic">Music</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="sensoryPreferenceMotion" name="sensoryPreference" value="motion">
+                <label for="sensoryPreferenceMotion">Motion</label>
+            </div>
+        </div>      
+    </div>
+        <a href="patient_sensory_controls.html" class="menu-button" id="beginSensory">Begin Sensory Experience</a>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

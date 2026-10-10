@@ -1,4 +1,19 @@
-body {
+.main-body {
+    margin: 2rem;
+    background-color: #d6dfff;
+}
+
+.patient-controls {
+    margin: 2rem;
+    background-color: #d6dfff;
+}
+
+.preferences-body {
+    margin: 2rem;
+    background-color: #d6dfff;
+}
+
+.feedback-form-body {
     margin: 2rem;
     margin-left: 25%;
     margin-right: 25%;
@@ -6,7 +21,42 @@ body {
 }
 
 h1 {
+    font-family: Arial, sans-serif;
     text-align: center;
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-family: Arial, sans-serif;
+    margin-bottom: 1rem;
+}
+
+.main-menu {
+    margin-top: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.menu-button {
+    font-family: Arial, sans-serif;
+    font-size: 1.2rem;
+    background-color: #007fda;
+    border: none;
+    padding: 1rem;
+    text-decoration: none;
+    color: white;
+    border-radius: 1rem;
+}
+
+.sensory-preference-section {
     margin-bottom: 2rem;
 }
 

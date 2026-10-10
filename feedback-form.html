@@ -7,9 +7,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="main_styles.css">
 </head>
-<body>
+<body class="feedback-form-body">
     <h1>Feedback Form</h1>
-    <h3>We would like you to share your feedback to help us improve our system, as well as improving your experience.</h3>
+    <h3>We would like you to share your feedback to help you with your future experience.</h3>
     <div class="feedback-form">
         <div class="form-group">
             <label for="name">Provide your full name:</label>
@@ -30,8 +30,8 @@
             <label for="experienceTypeLiked">Blackout Blinds</label>
         </div>
         <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="experienceTypeLiked" name="experienceTypeLiked" value="massagingPressures">
-            <label for="experienceTypeLiked">Massaging Pressures</label>
+            <input type="checkbox" class="form-check-input" id="experienceTypeLiked" name="experienceTypeLiked" value="pressure">
+            <label for="experienceTypeLiked">Pressure</label>
         </div>
         <div class="form-check">
             <input type="checkbox" class="form-check-input" id="experienceTypeLiked" name="experienceTypeLiked" value="bubbleTube">
@@ -45,6 +45,10 @@
             <input type="checkbox" class="form-check-input" id="experienceTypeLiked" name="experienceTypeLiked" value="music">
             <label for="experienceTypeLiked">Music</label>
         </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="experienceTypeLiked" name="experienceTypeLiked" value="motion">
+            <label for="experienceTypeLiked">Motion</label>
+        </div>
         <div class="form-group">
             <label for="nextSessionSuggestions">What sensory experience would you like in the next session?</label>
             <input type="text" class="form-control" id="nextSessionSuggestions" name="nextSessionSuggestions">
@@ -54,7 +58,9 @@
         <output id="experienceRatingValue">5</output>
         <br>
         <input type="range" class="form-range" min="0" max="10" step="1" id="experienceRating" name="experienceRating" oninput="document.getElementById('experienceRatingValue').value = this.value">
-        <input type="submit" value="Submit"> 
+        <form onsubmit="event.preventDefault(); window.location.href='main.html';">
+            <input type="submit" value="Submit" class="btn btn-secondary"> 
+        </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
