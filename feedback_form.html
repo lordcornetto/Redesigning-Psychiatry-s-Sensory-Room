@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="main_styles.css">
+</head>
+<body class="feedback-form-body">
+    <h1>Feedback Form</h1>
+    <h3>We would like you to share your feedback to help you with your future experience.</h3>
+    <form class="feedback-form" id="feedbackForm">
+        <div class="form-group">
+            <label for="name">Full Name:</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <br>
+        <fieldset>
+            <legend>What did you like about this experience?</legend>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="likedRoomLighting" name="experienceTypeLiked" value="roomLighting">
+            <label for="likedRoomLighting">Room Lighting</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="likedNoise" name="experienceTypeLiked" value="noise">
+            <label for="likedNoise">Noise</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="likedBlackoutBlinds" name="experienceTypeLiked" value="blackoutBlinds">
+            <label for="likedBlackoutBlinds">Blackout Blinds</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="likedPressure" name="experienceTypeLiked" value="pressure">
+            <label for="likedPressure">Pressure</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="likedBubbleTube" name="experienceTypeLiked" value="bubbleTube">
+            <label for="likedBubbleTube">Bubble Tube</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="likedComfortableFurniture" name="experienceTypeLiked" value="comfortableFurniture">
+            <label for="likedComfortableFurniture">Comfortable Furniture</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="likedMusic" name="experienceTypeLiked" value="music">
+            <label for="likedMusic">Music</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="likedMotion" name="experienceTypeLiked" value="motion">
+            <label for="likedMotion">Motion</label>
+        </div>
+        </fieldset>
+        <div class="form-group">
+            <label for="nextSessionSuggestions">What sensory experience(s) would you like in the next session?</label>
+            <input type="text" class="form-control" id="nextSessionSuggestions" name="nextSessionSuggestions">
+        </div>
+        <label for="experienceRating" id="experience-rating-scale" class="form-label">Rate your overall experience:</label>
+        <br>
+        <output id="experienceRatingValue">5</output>
+        <br>
+        <input type="range" class="form-range" min="0" max="10" step="1" id="experienceRating" name="experienceRating" oninput="document.getElementById('experienceRatingValue').value = this.value">
+        <button type="submit" class="btn btn-secondary">Submit</button>
+        <p id="feedbackSaveError" class="text-danger" role="alert" hidden>Feedback could not be saved. Please try again.</p>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="feedback.js"></script>
+</body>
+</html>

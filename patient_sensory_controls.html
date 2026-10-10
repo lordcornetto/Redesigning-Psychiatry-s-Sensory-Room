@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensory Room - Patient Controls</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="main_styles.css">
+</head>
+<body class="patient-controls">
+    <h1>Sensory Personalisation</h1>
+    <section id="disabilityPresetNotice" class="disability-preset-notice" aria-live="polite" hidden>
+        <h2 id="disabilityPresetHeading"></h2>
+    </section>
+    <h4>Time Limit: <output id="timeLimit">30:00</output></h4>
+    <div class="sensory-background" aria-label="Live sensory room preview">
+        <section class="preview-indicator" id="soundIndicator" aria-label="Sound preview">
+            <h3>Sound</h3>
+            <span id="previewSoundType">No sound selected</span>
+            <div class="sound-meter" role="meter" aria-label="Sound volume" aria-valuemin="0" aria-valuemax="100" aria-valuenow="25">
+                <div class="sound-meter-fill" id="previewSoundLevel"></div>
+            </div>
+            <output id="previewSoundVolume">25%</output>
+        </section>
+        <section class="preview-indicator" id="pressureIndicator" aria-label="Furniture pressure preview">
+            <h3>Seat pressure</h3>
+            <svg class="pressure-wave" viewBox="0 0 200 80" role="img" aria-label="Pressure wave">
+                <path id="previewPressureWave" d="M0 40 Q25 40 50 40 T100 40 T150 40 T200 40"></path>
+            </svg>
+            <output id="previewPressureLevel">25%</output>
+        </section>
+        <section class="preview-indicator" id="motionIndicator" aria-label="Motion preview">
+            <h3>Motion</h3>
+            <div class="motion-stage">
+                <div id="previewMotionCircle"></div>
+            </div>
+            <output id="previewMotionLevel">25%</output>
+        </section>
+    </div>
+    <div class="sensory-controls">
+        <div class="room-lighting">
+            <h3>Lighting</h3>
+            <button id="brightnessLighting" class="btn">
+                <label for="brightnessLighting">Brightness</label>
+                <br>
+                <label for="brightnessLighting">Oak panel</label>
+                <br>
+                <output id="brightnessOutput">25%</output>
+            </button>
+            <div class="colour-light-controls">
+                <label for="colourLighting">Colour</label>
+                <br>
+                <button type="button" class="btn colour-light-button" data-color="lightskyblue" aria-label="Light sky blue" aria-pressed="false" style="background-color: lightskyblue;"></button>
+                <button type="button" class="btn colour-light-button" data-color="lightgreen" aria-label="Light green" aria-pressed="false" style="background-color: lightgreen;"></button>
+                <button type="button" class="btn colour-light-button" data-color="lightpink" aria-label="Light pink" aria-pressed="false" style="background-color: lightpink;"></button>
+                <button type="button" class="btn colour-light-button" data-color="lightyellow" aria-label="Light yellow" aria-pressed="false" style="background-color: lightyellow;"></button>
+                <button type="button" class="btn colour-light-button" data-color="lightcoral" aria-label="Light coral" aria-pressed="false" style="background-color: lightcoral;"></button>
+                <button type="button" class="btn colour-light-button" data-color="rgb(210, 151, 210)" aria-label="Light purple" aria-pressed="false" style="background-color: rgb(210, 151, 210);"></button>
+            </div>
+        </div>
+        <div class="sound-controls">
+            <h3>Sound</h3>
+            <button id="volumeSound" class="btn">
+                <label for="volumeSound">Volume</label>
+                <br>
+                <label for="volumeSound">Slate panel</label>
+                <br>
+                <output id="volumeOutput">25%</output>
+            </button>
+            <div class="sound-type-controls">
+                <label for="soundType">Sound Type</label>
+                <br>
+                <button type="button" class="btn sound-type-button" data-sound-type="Rain" data-sound-src="sounds/rain.wav" data-sound-color="darkblue" aria-pressed="false" style="background-color: darkblue; color: white;">Rain</button>
+                <button type="button" class="btn sound-type-button" data-sound-type="Ocean" data-sound-src="sounds/ocean.wav" data-sound-color="lightskyblue" aria-pressed="false" style="background-color: lightskyblue;">Ocean</button>
+                <button type="button" class="btn sound-type-button" data-sound-type="Forest" data-sound-src="sounds/forest.wav" data-sound-color="lightgreen" aria-pressed="false" style="background-color: lightgreen;">Forest</button>
+                <button type="button" class="btn sound-type-button" data-sound-type="White Noise" data-sound-src="sounds/white_noise.wav" data-sound-color="lightgray" aria-pressed="false" style="background-color: lightgray;">White Noise</button>
+            </div>
+            <p id="soundPlaybackStatus" role="status" aria-live="polite"></p>
+        </div>
+        <div class="pressure">
+            <h3>Pressure</h3>
+            <button id="pressureControl" class="btn">
+                <label for="pressureControl">Pressure</label>
+                <br>
+                <label for="pressureControl">Silicone panel</label>
+                <br>
+                <output id="pressureOutput">25%</output>
+            </button>
+        </div>
+        <div class="motion">
+            <h3>Motion</h3>
+            <button id="motionControl" class="btn">
+                <label for="motionControl">Motion</label>
+                <br>
+                <label for="motionControl">Textured panel</label>
+                <br>
+                <output id="motionOutput">25%</output>
+            </button>
+        </div>
+    </div>
+    <div class="session-buttons">
+        <a href="enduser.html" class="menu-button" id="endSensory" style="margin-left: 2rem; background-color: #444444; color: white;">End Sensory Experience</a>
+        <button class="menu-button" id="adminControls" style="margin-left: 2rem; background-color: #444444; color: white;">Admin Controls</button>
+        <div id="adminPasswordPrompt" hidden>
+            <form id="adminPasswordForm">
+                <label for="terminateSessionPassword">Admin password</label>
+                <input type="password" class="form-control" id="terminateSessionPassword" name="terminateSessionPassword" autocomplete="current-password" placeholder="Enter password" required>
+                <button type="submit" class="menu-button admin-password-submit" style="background-color: #444444; color: white;">Continue</button>
+                <p id="adminPasswordError" class="text-danger" role="alert" hidden>Incorrect password.</p>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="sensory_controls.js"></script>
+</body>
+</html>

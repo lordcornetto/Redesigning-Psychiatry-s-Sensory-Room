@@ -1,13 +1,335 @@
-body {
+.main-body {
+    margin: 2rem;
+    background-color: #c0cbe8;
+}
+
+.home-document {
+    height: 100%;
+    overflow: hidden;
+}
+
+.home-page {
+    position: relative;
+    isolation: isolate;
+    height: 100vh;
+    min-height: 100svh;
+    margin: 0;
+    overflow: hidden;
+    background-color: #c0cbe8;
+}
+
+.home-page::before {
+    position: fixed;
+    z-index: -1;
+    inset: 0;
+    content: "";
+    background-image: url("img/snoezelen_room.png");
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: 100vw auto;
+    opacity: 0.4;
+}
+
+.patient-controls {
+    margin: 2rem;
+    background-color: #c0cbe8;
+}
+
+.preferences-body {
+    margin: 2rem;
+    background-color: #c0cbe8;
+}
+
+.feedback-form-body {
     margin: 2rem;
     margin-left: 25%;
     margin-right: 25%;
-    background-color: #d6dfff;
+    background-color: #c0cbe8;
 }
 
 h1 {
+    font-family: Arial, sans-serif;
     text-align: center;
     margin-bottom: 2rem;
+}
+
+h2 {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-family: Arial, sans-serif;
+    margin-bottom: 1rem;
+}
+
+h4 {
+    text-align: center;
+}
+
+.disability-preset-notice {
+    margin: 0 auto 1.5rem;
+    max-width: 50rem;
+    padding: 1rem 1.5rem;
+    border-left: 0.3rem solid #007fda;
+    border-radius: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.55);
+    text-align: center;
+}
+
+.disability-preset-notice h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.disability-preset-notice p {
+    margin-bottom: 0;
+}
+
+.main-menu {
+    margin-top: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.home-page .main-menu {
+    margin-top: clamp(2rem, 8vh, 5rem);
+}
+
+.menu-button {
+    font-family: Arial, sans-serif;
+    font-size: 1.2rem;
+    background-color: #007fda;
+    border: none;
+    padding: 1rem;
+    text-decoration: none;
+    color: white;
+    border-radius: 1rem;
+}
+
+.admin-password-submit {
+    margin: 0.25rem;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.9rem;
+}
+
+.audit-log-container {
+    max-height: 55vh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
+.terminate-session-button {
+    display: block;
+    margin: 1rem auto;
+    background-color: #a83232;
+}
+
+.return-to-patient-button {
+    display: block;
+    width: fit-content;
+    margin: 1rem auto;
+    text-align: center;
+}
+
+.audit-log-container .table {
+    margin-bottom: 0;
+}
+
+.audit-log-container thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.sensory-preference-section {
+    margin-bottom: 2rem;
+}
+
+.sensory-background {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+    min-height: 14rem;
+    padding-bottom: 20%;
+    background-color: #000000;
+    border-radius: 1rem;
+    margin: 2rem;
+    padding: 1.5rem;
+    color: white;
+    transition: background-color 200ms ease;
+}
+
+.sensory-background::before {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    content: "";
+    background-color: var(--room-color, #000000);
+    filter: brightness(var(--room-brightness, 1));
+    transition: background-color 200ms ease, filter 200ms ease;
+}
+
+.sensory-background > * {
+    position: relative;
+    z-index: 1;
+}
+
+#brightnessLighting {
+    background-color: #f2bb07b3;
+    color: black;
+    border: none;
+    padding: 1rem;
+}
+
+#brightnessOutput {
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.colour-light-button {
+    border: solid;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.session-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.preview-indicator {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+}
+
+.preview-indicator h3 {
+    margin-bottom: 0;
+}
+
+.sound-meter {
+    width: min(100%, 16rem);
+    height: 1.5rem;
+    overflow: hidden;
+    border: 2px solid white;
+    border-radius: 999px;
+    background: #333;
+}
+
+.sound-meter-fill {
+    width: 0;
+    height: 100%;
+    background: lightskyblue;
+    transition: width 200ms ease, background-color 200ms ease;
+}
+
+.pressure-wave {
+    width: min(100%, 14rem);
+    height: 5rem;
+    overflow: visible;
+}
+
+.pressure-wave path {
+    fill: none;
+    stroke: #7fffd4;
+    stroke-width: 5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: d 200ms ease;
+}
+
+.motion-stage {
+    display: grid;
+    width: 7rem;
+    height: 7rem;
+    place-items: center;
+    border: 2px solid white;
+    border-radius: 50%;
+}
+
+#previewMotionCircle {
+    width: 25%;
+    height: 25%;
+    border-radius: 50%;
+    background: #e48aff;
+    transition: width 200ms ease, height 200ms ease;
+}
+
+@media (max-width: 600px) {
+    .sensory-background {
+        flex-direction: column;
+        padding-bottom: 1.5rem;
+    }
+}
+
+#colourOutput {
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+#pressureControl {
+    background-color: #07f2b3b3;
+    color: black;
+    border: none;
+    padding: 1rem;
+}
+
+#motionControl {
+    background-color: #e48affb3;
+    color: black;
+    border: none;
+    padding: 1rem;
+}
+
+#soundType {
+    border: solid;
+}
+
+.sensory-controls {
+    margin: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+}
+
+.sensory-controls > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+@media (max-width: 600px) {
+    .sensory-controls {
+        grid-template-columns: 1fr;
+    }
+}
+
+#volumeSound {
+    background-color: #2600d0d2;
+    color: white;
+    border: none;
+    padding: 1rem;
+}
+
+#volumeOutput {
+    font-weight: bold;
+    margin-top: 1rem;
 }
 
 #experienceRating::-moz-range-thumb {
@@ -32,4 +354,9 @@ h1 {
     justify-content: center;
     align-items: center;
     font-weight: bold;
+}
+
+#terminateSessionPassword {
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
 }
