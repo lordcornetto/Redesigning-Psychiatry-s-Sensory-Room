@@ -3,6 +3,33 @@
     background-color: #c0cbe8;
 }
 
+.home-document {
+    height: 100%;
+    overflow: hidden;
+}
+
+.home-page {
+    position: relative;
+    isolation: isolate;
+    height: 100vh;
+    min-height: 100svh;
+    margin: 0;
+    overflow: hidden;
+    background-color: #c0cbe8;
+}
+
+.home-page::before {
+    position: fixed;
+    z-index: -1;
+    inset: 0;
+    content: "";
+    background-image: url("img/snoezelen_room.png");
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: 100vw auto;
+    opacity: 0.4;
+}
+
 .patient-controls {
     margin: 2rem;
     background-color: #c0cbe8;
@@ -41,12 +68,35 @@ h4 {
     text-align: center;
 }
 
+.disability-preset-notice {
+    margin: 0 auto 1.5rem;
+    max-width: 50rem;
+    padding: 1rem 1.5rem;
+    border-left: 0.3rem solid #007fda;
+    border-radius: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.55);
+    text-align: center;
+}
+
+.disability-preset-notice h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.disability-preset-notice p {
+    margin-bottom: 0;
+}
+
 .main-menu {
     margin-top: 20%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+}
+
+.home-page .main-menu {
+    margin-top: clamp(2rem, 8vh, 5rem);
 }
 
 .menu-button {
@@ -252,16 +302,22 @@ h4 {
 
 .sensory-controls {
     margin: 2rem;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 2rem;
 }
 
 .sensory-controls > div {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
+}
+
+@media (max-width: 600px) {
+    .sensory-controls {
+        grid-template-columns: 1fr;
+    }
 }
 
 #volumeSound {
@@ -298,4 +354,9 @@ h4 {
     justify-content: center;
     align-items: center;
     font-weight: bold;
+}
+
+#terminateSessionPassword {
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
 }

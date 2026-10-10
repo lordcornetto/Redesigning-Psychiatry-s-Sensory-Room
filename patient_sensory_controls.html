@@ -9,6 +9,9 @@
 </head>
 <body class="patient-controls">
     <h1>Sensory Personalisation</h1>
+    <section id="disabilityPresetNotice" class="disability-preset-notice" aria-live="polite" hidden>
+        <h2 id="disabilityPresetHeading"></h2>
+    </section>
     <h4>Time Limit: <output id="timeLimit">30:00</output></h4>
     <div class="sensory-background" aria-label="Live sensory room preview">
         <section class="preview-indicator" id="soundIndicator" aria-label="Sound preview">
@@ -57,7 +60,6 @@
         </div>
         <div class="sound-controls">
             <h3>Sound</h3>
-            <br>
             <button id="volumeSound" class="btn">
                 <label for="volumeSound">Volume</label>
                 <br>
@@ -68,15 +70,15 @@
             <div class="sound-type-controls">
                 <label for="soundType">Sound Type</label>
                 <br>
-                <button type="button" class="btn sound-type-button" data-sound-type="Rain" data-sound-color="darkblue" aria-pressed="false" style="background-color: darkblue; color: white;">Rain</button>
-                <button type="button" class="btn sound-type-button" data-sound-type="Ocean" data-sound-color="lightskyblue" aria-pressed="false" style="background-color: lightskyblue;">Ocean</button>
-                <button type="button" class="btn sound-type-button" data-sound-type="Forest" data-sound-color="lightgreen" aria-pressed="false" style="background-color: lightgreen;">Forest</button>
-                <button type="button" class="btn sound-type-button" data-sound-type="White Noise" data-sound-color="lightgray" aria-pressed="false" style="background-color: lightgray;">White Noise</button>
+                <button type="button" class="btn sound-type-button" data-sound-type="Rain" data-sound-src="sounds/rain.wav" data-sound-color="darkblue" aria-pressed="false" style="background-color: darkblue; color: white;">Rain</button>
+                <button type="button" class="btn sound-type-button" data-sound-type="Ocean" data-sound-src="sounds/ocean.wav" data-sound-color="lightskyblue" aria-pressed="false" style="background-color: lightskyblue;">Ocean</button>
+                <button type="button" class="btn sound-type-button" data-sound-type="Forest" data-sound-src="sounds/forest.wav" data-sound-color="lightgreen" aria-pressed="false" style="background-color: lightgreen;">Forest</button>
+                <button type="button" class="btn sound-type-button" data-sound-type="White Noise" data-sound-src="sounds/white_noise.wav" data-sound-color="lightgray" aria-pressed="false" style="background-color: lightgray;">White Noise</button>
             </div>
+            <p id="soundPlaybackStatus" role="status" aria-live="polite"></p>
         </div>
         <div class="pressure">
             <h3>Pressure</h3>
-            <br>
             <button id="pressureControl" class="btn">
                 <label for="pressureControl">Pressure</label>
                 <br>
@@ -87,7 +89,6 @@
         </div>
         <div class="motion">
             <h3>Motion</h3>
-            <br>
             <button id="motionControl" class="btn">
                 <label for="motionControl">Motion</label>
                 <br>
@@ -103,7 +104,7 @@
         <div id="adminPasswordPrompt" hidden>
             <form id="adminPasswordForm">
                 <label for="terminateSessionPassword">Admin password</label>
-                <input type="password" class="form-control" id="terminateSessionPassword" name="terminateSessionPassword" autocomplete="current-password" placeholder="Enter admin password" required>
+                <input type="password" class="form-control" id="terminateSessionPassword" name="terminateSessionPassword" autocomplete="current-password" placeholder="Enter password" required>
                 <button type="submit" class="menu-button admin-password-submit" style="background-color: #444444; color: white;">Continue</button>
                 <p id="adminPasswordError" class="text-danger" role="alert" hidden>Incorrect password.</p>
             </form>
