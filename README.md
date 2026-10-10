@@ -1,2 +1,2 @@
 # Redesigning-Psychiatry-s-Sensory-Room
-### This is the official control system designed for the nurses and the authorised staff to operate and monitor the sensory room. It sis used to log in patients usage time. Save their preferences and prepare the room before they arrive if required.
+### This is the official control system designed for the nurses and the authorised staff to operate and monitor the sensory room. It is used to log in patients usage time. Save their preferences and prepare the room before they arrive if required. It has a detailed feeb back form for the patients incase they want to get a more detailed feedback.
