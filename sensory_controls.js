@@ -9,28 +9,16 @@ function recordAuditLog(control, value) {
         value
     };
 
-    try {
-        const logs = JSON.parse(localStorage.getItem(auditLogKey) || "[]");
-        if (!Array.isArray(logs)) {
-            throw new TypeError("Stored sensory audit logs are not a list.");
-        }
-        logs.push(entry);
-        localStorage.setItem(auditLogKey, JSON.stringify(logs));
-    } catch (error) {
-        console.error("Unable to save sensory audit log:", error);
-        alert("This control change could not be added to the audit log.");
+    const logs = JSON.parse(localStorage.getItem(auditLogKey) || "[]");
+    if (!Array.isArray(logs)) {
+        throw new TypeError("Stored sensory audit logs are not a list.");
     }
+    logs.push(entry);
+    localStorage.setItem(auditLogKey, JSON.stringify(logs));
 }
 
 function clearAuditLogs() {
-    try {
-        localStorage.removeItem(auditLogKey);
-    } catch (error) {
-        console.error("Unable to clear sensory audit logs:", error);
-        return false;
-    }
-
-    return true;
+    localStorage.removeItem(auditLogKey);
 }
 
 if (document.body.classList.contains("end-user-page")) {
@@ -313,14 +301,8 @@ if (beginSensoryButton) {
             sensoryPreferences: selectedSensoryPreferences.map(input => input.value)
         };
 
-        try {
-            sessionStorage.setItem("sensoryPreferences", JSON.stringify(preferences));
-            sessionStorage.removeItem(sessionDeadlineKey);
-        } catch (error) {
-            event.preventDefault();
-            console.error("Unable to save sensory preferences:", error);
-            alert("Your preferences could not be saved. Please try again.");
-        }
+        sessionStorage.setItem("sensoryPreferences", JSON.stringify(preferences));
+        sessionStorage.removeItem(sessionDeadlineKey);
     });
 }
 
@@ -463,31 +445,26 @@ if (isStaffControlsPage) {
         window.location.assign("main.html");
     });
 
-    try {
-        const logs = JSON.parse(localStorage.getItem(auditLogKey) || "[]");
-        if (!Array.isArray(logs)) {
-            throw new TypeError("Stored sensory audit logs are not a list.");
-        }
+    const logs = JSON.parse(localStorage.getItem(auditLogKey) || "[]");
+    if (!Array.isArray(logs)) {
+        throw new TypeError("Stored sensory audit logs are not a list.");
+    }
 
-        if (logs.length === 0) {
-            auditLogStatus.textContent = "No control changes have been logged yet.";
-        } else {
-            logs.slice().reverse().forEach(function(log) {
-                const row = document.createElement("tr");
-                const timestampCell = document.createElement("td");
-                const controlCell = document.createElement("td");
-                const valueCell = document.createElement("td");
+    if (logs.length === 0) {
+        auditLogStatus.textContent = "No control changes have been logged yet.";
+    } else {
+        logs.slice().reverse().forEach(function(log) {
+            const row = document.createElement("tr");
+            const timestampCell = document.createElement("td");
+            const controlCell = document.createElement("td");
+            const valueCell = document.createElement("td");
 
-                timestampCell.textContent = new Date(log.timestamp).toLocaleString();
-                controlCell.textContent = log.control;
-                valueCell.textContent = log.value;
-                row.append(timestampCell, controlCell, valueCell);
-                auditLogList.append(row);
-            });
-        }
-    } catch (error) {
-        console.error("Unable to load sensory audit logs:", error);
-        auditLogStatus.textContent = "Audit logs could not be loaded.";
+            timestampCell.textContent = new Date(log.timestamp).toLocaleString();
+            controlCell.textContent = log.control;
+            valueCell.textContent = log.value;
+            row.append(timestampCell, controlCell, valueCell);
+            auditLogList.append(row);
+        });
     }
 }
 
